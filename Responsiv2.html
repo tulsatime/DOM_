@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=none">
+	<title></title>
+	<style type="text/css">
+		*{
+			margin: 0;
+		}
+		.navigation{
+			background-color: #333; overflow: hidden;
+		}
+		
+		a{
+			display: block; float: left; padding: 10px 20px; text-decoration: none; color: white;
+			font-size: 20px;
+		}
+		.active{
+			background-color: green;
+		}
+		a:not(.active):hover{
+			background-color: grey;
+		}
+		.iconDiv > div{
+			background-color: white; margin: 4.2px; width: 15px; height: 2px; transition: 0.3s ease;
+		}
+		.icon{
+			display: none;
+		}
+		@media screen and (max-width: 700px){
+			a:not(:first-child){
+				display: none;
+			}
+			.navigation a.icon{
+				display: block; float: right;
+			}
+			.navigation.resp a{
+				display: block; float: none;
+			}
+			.navigation.resp .icon{
+				position: absolute; top: 0; right: 0;
+			}
+			.navigation.resp{
+				position: relative;
+			}
+		}
+		.cha{position: relative; top: 30px; left: 48.3%; cursor: pointer;}
+		.cha > div{
+			background-color: black; height: 5px; width: 50px; margin: 5px 0; transition: 0.3s ease;
+		}
+		.challenge .c1{
+			transform: translate(0, -8px);
+		}
+		.challenge .c2{
+			transform: translate(-23px, 5px) rotate(270deg); background-color: red;
+		}
+		.challenge .c3{
+			transform: translate(23px, -5px) rotate(-270deg); background-color: green;
+		}
+		.challenge .c4{
+			transform: translate(0, 8px);
+		}
+		/*Or Using another way to achieve the same effect*/
+		
+		.c11{transform: translate(0, -8px);}
+		.c22{transform: translate(-23px, 5px) rotate(270deg); background-color: red;}
+		.c33{transform: translate(23px, -5px) rotate(-270deg); background-color: green;}
+		.c44{transform: translate(0, 8px);}
+		
+		button{
+			position: relative; top: 50px; left: 50%; transform: translate(-50%); cursor: pointer; background-color: green; padding: 10px 20px;
+			font-size: 25px;
+		}
+		
+		
+
+	</style>
+</head>
+<body>
+	<div class="navigation" id="nn">
+		<a href="" class="active">Home</a>
+		<a href="">Collections</a>
+		<a href="">Schools</a>
+		<a href="">Offices</a>
+		<a href="">Contact Us</a>
+		<a href="javascript:void(0);" class="icon" onclick="exP()">
+			<div class="iconDiv">
+				<div id="d1"></div>
+				<div id="d2"></div>
+				<div id="d3"></div>
+			</div>
+		</a>
+
+	</div>
+
+	<div class="cha" onclick="change(this)">
+		<div class="c1" id="c1"></div>
+		<div class="c2" id="c2"></div>
+		<div class="c3" id="c3"></div>
+		<div class="c4" id="c4"></div>
+	</div>
+	<button onclick="magic()">Clik It</button>
+</body>
+<script type="text/javascript">
+	function exP() {
+		
+		var a = document.getElementById("d1");
+		var b = document.getElementById("d2");
+		var c = document.getElementById("d3");
+		var d = document.getElementById('nn');
+
+		if (d.className == "navigation"){
+			d.className += " resp";
+			
+			a.style.transform = "translate(0px, 6.5px) rotate(45deg)";
+			a.style.backgroundColor = "red";
+			b.style.opacity = 0;
+			c.style.transform = "translate(0px, -6.5px) rotate(-45deg)";
+			c.style.backgroundColor = "red";
+
+			
+		}
+		else{
+			d.className = "navigation";
+			
+			a.style.transform = "rotate(0deg)";
+			a.style.backgroundColor = "white";
+			b.style.opacity = 1;
+			c.style.transform = "rotate(0deg)";
+			c.style.backgroundColor = "white";
+
+			
+		}
+	}
+	function change(f){
+		f.classList.toggle("challenge");
+	}
+	function magic(){
+		var e = document.getElementById("c1");
+		var f = document.getElementById("c2");
+		var g = document.getElementById("c3");
+		var h = document.getElementById("c4");
+		e.classList.toggle("c11");
+		f.classList.toggle("c22");
+		g.classList.toggle("c33");
+		h.classList.toggle("c44");
+	}
+
+</script>
+</html>
