@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.div{
+			position: absolute; left: 50%; top: 25%; transform: translate(-50%, -25%);
+			background-color: #999; height: 200px; width: 200px; transition: 0.5s ease; 
+		}
+		.dav{
+			position: absolute; left: 50%; top: 25%; transform: translate(-50%, -25%);
+			background-color: crimson; height: 200px; width: 200px; clip-path: circle(); transition: 0.5s ease;
+		}
+		.dov{
+			position: absolute; left: 50%; top: 25%; transform: translate(-50%, -25%);
+			background-color: lightgreen; height: 200px; width: 200px; transition: 0.5s ease; border-radius: 30%;
+			clip-path: polygon(0 0, 10% 0, 10% 10%, 20% 10%, 20% 20%, 30% 20%, 30% 30%, 40% 30%, 40% 40%, 60% 40%, 60% 30%, 70% 30%, 70% 20%, 80% 20%, 80% 10%, 90% 10%, 90% 0, 0 0);
+		}
+		.dev{
+			position: absolute; left: 50%; top: 25%; transform: translate(-50%, -25%);
+			background-color: lightblue; height: 200px; width: 200px; transition: 0.5s ease;
+			clip-path: polygon(0 0, 10% 0, 10% 10%, 20% 10%, 20% 20%, 30% 20%, 30% 30%, 40% 30%, 40% 40%, 60% 40%, 60% 30%, 70% 30%, 70% 20%, 80% 20%, 80% 10%, 90% 10%, 90% 0, 100% 0, 100% 100%, 0 100%, 0 0);
+			border-radius: 0 0 10px 10px;
+		}
+		.duv{
+			position: absolute; left: 50%; top: 25%; transform: translate(-50%, -25%);
+			background-color: goldenrod; height: 200px; width: 200px; transition: 0.5s ease;
+			clip-path: polygon(80px 100px, 10px 60px, 86px 86px, 60px 10px, 100px 80px, 140px 10px, 114px 86px, 190px 60px, 120px 100px, 190px 140px, 114px 114px, 140px 190px, 100px 120px, 60px 190px, 86px 114px, 10px 140px, 80px 100px);
+		}
+		button{
+			position: absolute;  left: 50%; top: 70%; transform: translate(-50%, -70%); 
+		}
+	</style>
+</head>
+<body>
+	<div id="hh" class="div"></div>
+	<!-- <div id="hh" class="duv"></div> -->
+	<button onclick="change()">Click to change Shapes</button>
+</body>
+<script type="text/javascript">
+	function change(){
+		var x = document.getElementById('hh');
+		if (x.classList == "div"){
+			x.classList = "dav";
+		}
+		else if (x.classList == "dav"){
+			x.classList = "dov";
+		}
+		else if(x.classList == "dov"){
+			x.classList = "dev";
+		}
+		else if (x.classList == "dev"){
+			x.classList = "duv";
+		}
+		else{
+			x.classList = "div";
+		}
+		// x.classList = "div"? "dov": "div";	
+	}
+	
+</script>
+</html>
